@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@color/cardview_dark_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:padding="8dp"
+                android:background="@drawable/text_round_background"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="8dp"
+                android:text="Poletics"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/textColor"
+            android:textSize="20sp"
+            android:layout_weight="700"
+            android:text="Featured News"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/textBlueColor"
+            android:textSize="18sp"
+            android:layout_weight="700"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="24+"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
