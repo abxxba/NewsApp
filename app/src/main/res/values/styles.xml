@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <!-- light theme. -->
+    <!-- LIGHT THEME. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -9,12 +9,21 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">#fff</item>
         <item name="textColor">#000</item>
+        <item name="textColorDim">#2C2C2C</item>
         <item name="googleBacground">#d44a3d</item>
         <item name="textBlueColor">#4282ef</item>
 
     </style>
 
-    <!-- dark theme -->
+    <style name="DrawerIconLight" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">#292929</item>
+    </style>
+
+    <!-- DARK THEME theme -->
+
+    <style name="DrawerIconDark" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">#FFFFFF</item>
+    </style>
 
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -23,6 +32,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="backgroundColor">#000</item>
         <item name="textColor">#fff</item>
+        <item name="textColorDim">#A0A0A0</item>
         <item name="googleBacground">#d44a3d</item>
         <item name="textBlueColor">#4282ef</item>
     </style>
@@ -53,6 +63,6 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 
 </resources>

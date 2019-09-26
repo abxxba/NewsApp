@@ -19,6 +19,8 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.newsapp.R;
 import com.example.newsapp.utils.httpConfig;
+import com.example.newsapp.utils.httpRequests;
+import com.example.newsapp.utils.vollyCallback;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -26,6 +28,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+
+import org.json.JSONException;
 
 public class signUpDialog extends DialogFragment {
 
@@ -91,12 +95,6 @@ public class signUpDialog extends DialogFragment {
         return dialog;
     }
 
-    private void signUp() {
-        Log.d("googleee", "signUp: ");
-        intent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(intent, REC_CODE);
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
@@ -109,21 +107,6 @@ public class signUpDialog extends DialogFragment {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            String idToken = account.getIdToken();
-            Log.w("googleeeee", "sucesss: = >  " + idToken);
-            // Signed in successfully, show authenticated UI.
-            //updateUI(account);
-        } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w("googleeeee", "signInResult:failed code=" + e.getStatusCode());
-            //updateUI(null);
-        }
-    }
-
     @Override
     public void onStart() {
         super.onStart();
@@ -134,5 +117,41 @@ public class signUpDialog extends DialogFragment {
             dialog.getWindow().setLayout(width, height);
         }
     }
+
+    private void signUp() {
+        Log.d("googleee", "signUp: ");
+        intent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(intent, REC_CODE);
+    }
+
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            String idToken = account.getIdToken();
+            Log.w("googleeeee", "sucesss: = >  " + idToken);
+            // Signed in successfully, show authenticated UI.
+            userAutentication(idToken);
+        } catch (ApiException e) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Log.w("googleeeee", "signInResult:failed code=" + e.getStatusCode());
+            //updateUI(null);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+  private void userAutentication(String token) throws JSONException {
+      httpRequests.oathGoogle(context, new vollyCallback() {
+          @Override
+          public void onResponse(String response) {
+              Log.d("vollyyyyyy", "onResponse: "+response);
+              if (!response.split("/")[0].equals("error")) {
+
+              }
+          }
+      });
+  }
+
 }
 

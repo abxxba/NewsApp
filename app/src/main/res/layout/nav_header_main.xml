@@ -3,10 +3,75 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:gravity="bottom"
-    android:orientation="vertical"
-    android:padding="8dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/user_logged_in"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_edit_profile_Image"
+                android:layout_width="0dp"
+                android:layout_height="98dp"
+                android:layout_weight="0.2"
+                android:src="@color/cardview_shadow_end_color"
+                app:civ_border_color="?attr/textColorDim"
+                app:civ_border_width="1dp"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Abiy Shiferaw"
+                    android:textSize="18sp"
+                    android:padding="2dp"
+                    android:textColor="?attr/textColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AbiyShiferaw@gmail.com"
+                    android:textSize="13sp"
+                    android:padding="2dp"
+                    android:textColor="?attr/textColorDim"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:textColor="#f44336"
+                    android:textSize="13sp"
+                    android:text="Log Out"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_logged_out"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
 
 </LinearLayout>
